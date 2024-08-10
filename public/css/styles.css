@@ -1,0 +1,225 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+}
+
+input, textarea {
+    font: inherit;
+    border: none;
+    outline: none;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.map-container {
+            margin-left: 15px;
+            margin-top: 15px;
+        }
+
+.sidebar-container {
+            margin-right: 15px;
+            margin-top: 15px;
+        }
+
+/* General styles for the map container */
+#map {
+    height: 500px; /* Adjust the height as needed */
+    width: 100%;   /* Full width of the parent container */
+    border: 1px solid #ddd; /* Optional: add a border for better visibility */
+}
+
+/* Style adjustments for the sidebar */
+#sidebar {
+    margin-top: 15px;
+}
+
+/* Table styling for AQI Alert Information */
+.table {
+    width: 100%; /* Ensure table takes full width of the container */
+}
+
+/* Additional styles to ensure responsiveness */
+@media (max-width: 768px) {
+    #map {
+        height: 300px; /* Adjust the height for smaller screens */
+    }
+}
+
+.card-body {
+    font-size: 14px;
+}
+
+.badge {
+    font-size: 12px;
+}
+
+/* Sidebar styling */
+#sidebar {
+    position: sticky;
+    top: 0;
+    padding: 15px;
+}
+
+/* AQI Summary table styling */
+#aqi-summary table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#aqi-summary th, #aqi-summary td {
+    text-align: left;
+    padding: 8px;
+}
+
+#aqi-summary th {
+    background-color: #f2f2f2;
+}
+
+/* Sidebar styling */
+#sidebar {
+    position: sticky;
+    top: 0;
+    padding: 15px;
+}
+
+/* AQI Summary table styling */
+#aqi-summary {
+    margin-bottom: 20px;
+}
+
+/* Style for AQI index legend */
+#aqi-legend {
+    margin-top: 20px;
+}
+
+.table-sm th, .table-sm td {
+    padding: 0.5rem; /* Smaller padding for the table */
+    font-size: 0.875rem; /* Smaller font size for the table */
+    
+}
+
+.table td, .table th {
+    text-align: center;
+}
+
+/* Chatbox Styles */
+#chatbox {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    max-height: 500px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none; /* Initially hidden */
+    z-index: 1000;
+}
+
+#chatbox-header {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    cursor: pointer;
+}
+
+#chatbox-content {
+    padding: 10px;
+    overflow-y: auto;
+    height: 400px;
+}
+
+#chatbox-footer {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+#chatbox-input {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+#chatbox-send {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#chatbox-send:hover {
+    background-color: #218838;
+}
+
+#chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#chat-icon:hover {
+    background-color: #218838;
+}
+
