@@ -1,8 +1,8 @@
 /* Chat Box Styles */
 .chat-box {
     position: fixed;
-    bottom: 0;
-    right: 0;
+    bottom: 20px; /* Add margin at the bottom */
+    left: 20px; /* Add margin on the left */
     width: 300px;
     height: 400px;
     background-color: #fff;
@@ -39,6 +39,10 @@
     border-bottom: 1px solid #ddd;
 }
 
+.message {
+    margin-bottom: 10px;
+}
+
 .chat-input {
     display: flex;
     padding: 10px;
@@ -59,8 +63,8 @@
 
 .chat-icon {
     position: fixed;
-    bottom: 10px;
-    right: 10px;
+    bottom: 20px; /* Align with the chat box */
+    left: 20px; /* Align with the chat box */
     z-index: 1000;
 }
 
