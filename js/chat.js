@@ -1,44 +1,55 @@
 // chat.js
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     const chatBox = document.getElementById('chat-box');
     const chatIcon = document.getElementById('chat-icon');
     const chatExpand = document.getElementById('chat-expand');
     const chatMinimize = document.getElementById('chat-minimize');
+    const chatInput = document.querySelector('.chat-input input');
+    const chatSendButton = document.querySelector('.chat-input button');
+    const messagesContainer = document.querySelector('.messages');
 
-    // Show chat box when expand button is clicked
-    chatExpand.addEventListener('click', function() {
+    chatExpand.addEventListener('click', () => {
         chatBox.style.display = 'flex';
         chatIcon.style.display = 'none';
     });
 
-    // Hide chat box when minimize button is clicked
-    chatMinimize.addEventListener('click', function() {
+    chatMinimize.addEventListener('click', () => {
         chatBox.style.display = 'none';
-        chatIcon.style.display = 'flex';
+        chatIcon.style.display = 'block';
     });
 
-    // Handle sending messages
-    const sendMessageButton = chatBox.querySelector('.chat-input button');
-    const messageInput = chatBox.querySelector('.chat-input input');
-    const messagesContainer = chatBox.querySelector('.messages');
+    function appendMessage(text, isUser = true) {
+        const message = document.createElement('div');
+        message.className = isUser ? 'message user-message' : 'message bot-message';
+        message.textContent = text;
+        messagesContainer.appendChild(message);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight; // Auto-scroll to the bottom
+    }
 
-    sendMessageButton.addEventListener('click', function() {
-        const messageText = messageInput.value.trim();
-        if (messageText) {
-            const messageElement = document.createElement('div');
-            messageElement.textContent = messageText;
-            messageElement.className = 'message';
-            messagesContainer.appendChild(messageElement);
-            messageInput.value = ''; // Clear the input field
-            messagesContainer.scrollTop = messagesContainer.scrollHeight; // Scroll to the bottom
+    function getBotResponse(input) {
+        const responses = {
+            'hello': 'Magandang araw! Paano ako makakatulong?',
+            'how are you': 'Ako po ay isang bot na maaring maging sa inyo ng ilang impormasyo.',
+            'ano ang polusyon sa hangin?': 'Ang polusyon sa hangin ay ang presensya ng mga mapanganib na substansiya sa hangin na ating nilalanghap. Ito ay mula sa mga emisyon ng sasakyan, mga gawaing pang-industriya, at mga likas na pangyayari.',
+            'default': 'Paumanhin, hindi ko maintindihan ang inyong katanungan. Mayroon po ba kayong ibang katangungan?'
+        };
+        return responses[input.toLowerCase()] || responses['default'];
+    }
+
+    chatSendButton.addEventListener('click', () => {
+        const userInput = chatInput.value.trim();
+        if (userInput) {
+            appendMessage(userInput);
+            chatInput.value = '';
+            const botResponse = getBotResponse(userInput);
+            setTimeout(() => appendMessage(botResponse, false), 500); // Simulate delay
         }
     });
 
-    // Handle Enter key for sending messages
-    messageInput.addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
-            sendMessageButton.click();
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            chatSendButton.click();
         }
     });
 });

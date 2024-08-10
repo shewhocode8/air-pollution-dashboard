@@ -38,13 +38,24 @@
 .message {
     padding: 5px;
     border-radius: 4px;
-    background-color: #f1f1f1;
     margin-bottom: 5px;
+}
+
+.user-message {
+    background-color: #e1ffc7;
+    align-self: flex-end;
+}
+
+.bot-message {
+    background-color: #f1f1f1;
+    align-self: flex-start;
 }
 
 .chat-input {
     display: flex;
     align-items: center;
+    padding: 10px;
+    border-top: 1px solid #cccccc;
 }
 
 .chat-input input {
