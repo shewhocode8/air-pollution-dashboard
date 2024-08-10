@@ -145,37 +145,3 @@ document.addEventListener('DOMContentLoaded', function () {
     `;
 });
 
-// Toggle chatbox visibility
-document.addEventListener('DOMContentLoaded', function () {
-    const chatbox = document.getElementById('chatbox');
-    const chatIcon = document.getElementById('chat-icon');
-    const chatboxHeader = document.getElementById('chatbox-header');
-
-    chatIcon.addEventListener('click', function () {
-        if (chatbox.style.display === 'none' || chatbox.style.display === '') {
-            chatbox.style.display = 'block';
-            chatIcon.style.display = 'none';
-        } else {
-            chatbox.style.display = 'none';
-            chatIcon.style.display = 'block';
-        }
-    });
-
-    chatboxHeader.addEventListener('click', function () {
-        chatbox.style.display = 'none';
-        chatIcon.style.display = 'block';
-    });
-
-    // Handle sending message
-    document.getElementById('chatbox-send').addEventListener('click', function () {
-        const input = document.getElementById('chatbox-input');
-        if (input.value.trim() !== '') {
-            const message = document.createElement('div');
-            message.textContent = input.value;
-            chatboxContent.appendChild(message);
-            input.value = '';
-            chatboxContent.scrollTop = chatboxContent.scrollHeight;
-        }
-    });
-});
-
